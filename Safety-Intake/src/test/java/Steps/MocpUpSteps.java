@@ -4,9 +4,7 @@ import Pages.AppLauncherPage;
 import Pages.BasePage;
 import Pages.HomePage;
 import Pages.LoginPage;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import cucumber.api.java.en.*;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -36,7 +34,7 @@ public class MocpUpSteps {
 
     @Then("^Source Document Status Review is present$")
     public void source_Document_Status_Review_is_present() {
-//        Assert.assertTrue(homePage.isSourseDocStatusReviewPresent());
+     //   Assert.assertTrue(homePage.isSourseDocStatusReviewPresent(), "Source Document Status Review isn't present");
     }
 
     @Then("^Source document list is present$")

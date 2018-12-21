@@ -19,20 +19,23 @@ public class HomePage {
     }
 
     public boolean isChaterPresent() {
-        $(chatter).scrollTo();
 
-        return $(chatter).isDisplayed();
+        return isElementPresent(chatter);
     }
 
     public boolean isRecentRecordPresent() {
-        $(recentRecords).scrollTo();
 
-        return $(recentRecords).isDisplayed();
+        return isElementPresent(recentRecords);
     }
 
     public boolean isCaseCandidatsListPresent() {
-        $(caseCandidatsList).scrollTo();
 
-        return $(caseCandidatsList).isDisplayed();
+       return isElementPresent(caseCandidatsList);
+    }
+
+    private boolean isElementPresent (By cssSelector) {
+        $(cssSelector).scrollTo();
+
+        return $(cssSelector).isDisplayed();
     }
 }
