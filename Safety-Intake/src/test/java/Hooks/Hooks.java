@@ -8,6 +8,7 @@ public class Hooks {
     @Before
     public void SetUp ()
     {
+        Configuration.screenshots = true;
         Configuration.browser = "safari";
     }
 }

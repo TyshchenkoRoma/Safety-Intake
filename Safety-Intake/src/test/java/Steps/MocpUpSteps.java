@@ -2,6 +2,7 @@ package Steps;
 
 import Pages.AppLauncherPage;
 import Pages.BasePage;
+import Pages.HomePage;
 import Pages.LoginPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -12,9 +13,10 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class MocpUpSteps {
 
-    LoginPage loginPage = new LoginPage();
-    BasePage basePage;
-    AppLauncherPage appLauncherPage;
+    private LoginPage loginPage = new LoginPage();
+    private BasePage basePage;
+    private AppLauncherPage appLauncherPage;
+    private HomePage homePage;
 
     @Given("^user opened the login page$")
     public void user_opened_the_login_page() {
@@ -29,26 +31,26 @@ public class MocpUpSteps {
     @When("^user go to Home page via AppLauncher$")
     public void user_go_to_Home_page_via_AppLauncher() {
         appLauncherPage = basePage.openAppLauncher();
-        appLauncherPage.openHomePage();
+        homePage = appLauncherPage.openHomePage();
     }
 
     @Then("^Source Document Status Review is present$")
     public void source_Document_Status_Review_is_present() {
-
+//        Assert.assertTrue(homePage.isSourseDocStatusReviewPresent());
     }
 
     @Then("^Source document list is present$")
     public void source_document_list_is_present() {
-        // Write code here that turns the phrase above into concrete actions
+        Assert.assertTrue(homePage.isCaseCandidatsListPresent(), "Source document list isn't present");
     }
 
     @Then("^Chatter is present$")
-    public void chatter_is_present() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+    public void chatter_is_present() {
+        Assert.assertTrue(homePage.isChaterPresent(), "Chatter isn't present.");
     }
 
     @Then("^Recent Records is present$")
-    public void recent_Records_is_present() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+    public void recent_Records_is_present() {
+        Assert.assertTrue(homePage.isRecentRecordPresent(), "Recent Records isn't present");
     }
 }
